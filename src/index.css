@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .input-btn {
+    @apply border-[1px] border-gray-400 rounded p-[5px] placeholder:text-[12px] 
+    bg-[#e7e7e7dc] outline-none focus:border-[#770f38];
+  }
+
+  .icons{
+    @apply p-1 bg-[#b3b0b0] hover:bg-white transition-all ease-in-out duration-300 rounded-full;
+  }
+}
+
+li{
+  cursor: pointer;
+}
+
+.blues {
+  filter: hue-rotate(210deg);
+}
+
+.yellow {
+  filter: hue-rotate(55deg) brightness(150%);
+}
+
+.orange {
+  filter: hue-rotate(0deg);
+}
+
+.slide {
+  animation: myAnim 5s linear infinite;
+  cursor: pointer;
+}
+.slide:hover {
+  animation-play-state: paused;
+}
+
+@keyframes myAnim {
+  0% {
+    bottom: 10rem;
+  }
+  25% {
+    bottom: 0rem;
+  }
+  50% {
+    bottom: -10rem;
+  }
+
+  100% {
+    bottom: 0rem;
+  }
+}
+
+.slick-slide > div{
+  margin: 0 10px;
+  padding-bottom: 3px;
+}
+
+.slick-list{
+  margin: 0 -10px;
+}
+
+/* .slick-prev::before,
+.slick-next:before {
+    color: #FC5545!important ;
+    font-size: 1.7rem;
+} */
+
+.newsletter{
+  background-image: url('../src/assets/newsletter.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+
+.client{
+  background-image: url('../src/assets/client.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+
+.profile{
+  background-image: url('../src/assets/gallery1.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
