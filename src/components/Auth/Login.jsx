@@ -28,7 +28,7 @@ const Login = (props) => {
     e.preventDefault();
     setIsLoading(true);
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDr1EWrfQlWeI07dhtp2EVkKdW3pQsOtOk",
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_SWIFT_KEY}`,
       {
         method: "POST",
         body: JSON.stringify({

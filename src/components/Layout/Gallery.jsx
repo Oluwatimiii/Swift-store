@@ -8,6 +8,19 @@ import img5 from "../../assets/gallery5.webp";
 import img6 from "../../assets/gallery6.webp";
 import img7 from "../../assets/gallery7.webp";
 import img8 from "../../assets/gallery8.webp";
+import img9 from "../../assets/gallery9.webp";
+import img10 from "../../assets/gallery10.webp";
+import img11 from "../../assets/gallery11.webp";
+import img12 from "../../assets/gallery12.webp";
+import img13 from "../../assets/gallery13.webp";
+import img14 from "../../assets/gallery14.webp";
+import img15 from "../../assets/gallery15.webp";
+import img16 from "../../assets/gallery16.webp";
+import img17 from "../../assets/gallery17.webp";
+import img18 from "../../assets/gallery18.webp";
+import img19 from "../../assets/gallery19.webp";
+import img20 from "../../assets/gallery20.webp";
+import img21 from "../../assets/gallery21.webp";
 import "./Gallery.css";
 
 const Gallery = () => {
@@ -43,6 +56,58 @@ const Gallery = () => {
     {
       id: 8,
       imgSrc: img8,
+    },
+    {
+      id: 9,
+      imgSrc: img9,
+    },
+    {
+      id: 10,
+      imgSrc: img10,
+    },
+    {
+      id: 11,
+      imgSrc: img11,
+    },
+    {
+      id: 12,
+      imgSrc: img12,
+    },
+    {
+      id: 13,
+      imgSrc: img13,
+    },
+    {
+      id: 14,
+      imgSrc: img14,
+    },
+    {
+      id: 15,
+      imgSrc: img15,
+    },
+    {
+      id: 16,
+      imgSrc: img16,
+    },
+    {
+      id: 17,
+      imgSrc: img17,
+    },
+    {
+      id: 18,
+      imgSrc: img18,
+    },
+    {
+      id: 19,
+      imgSrc: img19,
+    },
+    {
+      id: 20,
+      imgSrc: img21,
+    },
+    {
+      id: 21,
+      imgSrc: img21,
     },
   ];
 

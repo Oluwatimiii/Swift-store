@@ -7,16 +7,18 @@ import Video from "../UI/Video";
 import Countdown from "./Countdown";
 import Hero from "./Hero";
 import { ToastContainer } from "react-toastify";
+import About from "../UI/About";
 
 const Home = () => {
   return (
     <div className="font-poppins" id="HomePage">
       <Hero />
       <Countdown />
-      <Video />
       <Trending />
       <SelectedGallery />
+      <About />
       <ClientsSay />
+      {/* <Video /> */}
       <Newsletter />
       <ToastContainer
         position="top-right"
