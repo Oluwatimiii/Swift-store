@@ -7,22 +7,22 @@ const dataCollection = [
   {
     question: "Swift's Efficiency",
     answer:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est corporis ea doloribus ipsum delectus in.",
+      "We provide a great service in multiple aspects to give our customers an awesome satisfaction.",
   },
   {
     question: "Physical Stores",
     answer:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est corporis ea doloribus ipsum delectus in.",
+      "Asides from our online stores, swift has multiple licensed walk-in stores all around to world, to provide swift access to our products",
   },
   {
     question: "Products Availability",
     answer:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est corporis ea doloribus ipsum delectus in.",
+      "We provide daily updates on available products, to make our customers well informed.",
   },
   {
     question: "Customers Satisfaction",
     answer:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est corporis ea doloribus ipsum delectus in.",
+      "Our efficient services as stated gives you a great satisfaction. Shop with swift today.",
   },
 ];
 
@@ -40,7 +40,9 @@ const About = () => {
   return (
     <div className="bg-[#fdfcfc] h-full mx-auto py-[5rem] font-poppins">
       <div className="mx-auto px-6 md:px-7 max-w-[1200px]">
-        <div className="flex flex-col items-center md:items-stretch md:flex-row justify-center md:justify-between">
+        <div
+          className="flex flex-col items-center md:items-stretch md:flex-row justify-center md:justify-between"
+        >
           <div className="overflow-hidden rounded-md shadow-lg max-h-[300px] max-w-[230px] md:max-w-[40%] md:max-h-[370px] lg:max-w-[450px] lg:max-h-[470px]">
             <img
               src={Image1}
@@ -54,11 +56,11 @@ const About = () => {
               <div className="h-[1px] w-[30px] md:w-[75px] bg-[#FC554575] "></div>
               <h1 className="text-[#1E1E1E] text-[14px] lg:text-xl">
                 WHY CHOOSE
-                <span className="text-[#FC5545] pl-1 md:pl-2">SWIFT</span>
+                <span className="text-[#FC5545] pl-1 md:pl-2">SWIFT</span>?
               </h1>
             </div>
             <h1 className="font-semibold pt-2 text-[14px] lg:text-2xl">
-              A leading nike retail store
+              A leading nike retail store.
             </h1>
             <p className="md:max-w-[370px] lg:max-w-[450px] py-5 text-[14px] lg:text-[16px] leading-[1.9rem]">
               Shop great quality and perfect nike products. Our world-class and
@@ -84,7 +86,7 @@ const About = () => {
                             <span>
                               <IoChevronDown
                                 size={20}
-                                className="p-1 border-[1px] border-[#FC5545] rounded-full"
+                                className="p-1 border-[1px] border-[#FC5545] cursor-pointer rounded-full"
                                 color="#FC5545"
                               />
                             </span>
@@ -94,7 +96,7 @@ const About = () => {
                             <span>
                               <IoChevronForward
                                 size={20}
-                                className="p-1 border-[1px] border-[#1E1E1E] rounded-full"
+                                className="p-1 border-[1px] border-[#1E1E1E] cursor-pointer rounded-full"
                                 color="#1E1E1E"
                               />
                             </span>
@@ -104,18 +106,24 @@ const About = () => {
 
                       <h2
                         className={`
-                          ${accordion === index
-                            && "font-semibold text-15px lg:text-xl text-[#FC5545]"}
-                            font-semibold text-15px lg:text-xl
+                          ${
+                            accordion === index &&
+                            "font-semibold text-15px lg:text-xl text-[#FC5545]"
+                          }
+                           cursor-pointer font-semibold text-15px lg:text-xl
                         `}
                       >
                         {item.question}
                       </h2>
                     </div>
-                    <div className="md:max-w-[350px] lg:max-w-[400px]">
+                    <div
+                      className="md:max-w-[350px] lg:max-w-[400px] transition-all duration-300 ease-in-out"
+                    >
                       <p
                         className={
-                          accordion === index ? "block pl-[1.7rem] md:pl-[2.4rem] lg:pl-[2.8rem] text-[13px] lg:text-[14px]" : "hidden"
+                          accordion === index
+                            ? "block pl-[1.7rem] transition-all duration-300 ease-in-out md:pl-[2.4rem] lg:pl-[2.8rem] text-[13px] lg:text-[14px]"
+                            : "hidden"
                         }
                       >
                         {item.answer}

@@ -3,7 +3,9 @@ import Shoes from "../Shoes/Shoes";
 
 const Products = () => {
   return (
-    <div className="bg-[#f8f8f8] h-full py-[6rem] mx-auto">
+    <div
+      className="bg-[#f8f8f8] h-full py-[6rem] mx-auto"
+    >
       <div className="mx-auto px-5 md:px-8 max-w-[1200px]">
         <div className="text-center font-michroma text-black mb-6 md:mb-10">
           <h1 className="font-bold text-2xl md:text-3xl tracking-widest">

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import Time from "../UI/Time";
+import {motion} from 'framer-motion'
 
 const Profile = ({ userName }) => {
   const authCtx = useContext(AuthContext);
@@ -15,7 +16,12 @@ const Profile = ({ userName }) => {
 
 
   return (
-    <div className="h-screen profile">
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.8, type: "tween" }}
+     className="h-screen profile">
       <div className="bg-[#0a0a0ada] text-white h-full w-full flex flex-col items-center justify-center font-poppins pt-[7.6rem] pb-[3rem]">
         <div className="mx-auto px-7 md:px-10 flex flex-col items-center text-center space-y-5 justify-center">
           <h2 className="text-xl md:text-2xl lg:text-5xl font-poppins uppercase">HELLO  {userName}</h2>
@@ -32,7 +38,7 @@ const Profile = ({ userName }) => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

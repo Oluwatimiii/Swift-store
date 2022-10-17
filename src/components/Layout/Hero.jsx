@@ -3,6 +3,7 @@ import Polygon from "../../assets/Polygon.png";
 import Shoe1 from "../../assets/Shoe1.png";
 import Ratings from "../../assets/Ratings.png";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [color, setColor] = useState("#FC5545");
@@ -23,11 +24,16 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="bg-[#fcfcfc] h-full pt-[6rem] md:pt-[4rem] lg:pt-[8rem] pb-[7rem] mx-auto">
-        <div className="w-full mx-auto px-4 md:px-10 max-w-[1200px]">
+      <div className="bg-[#fcfcfc] h-full pt-[5rem] md:pt-[4rem] lg:pt-[8rem] pb-[7rem] mx-auto">
+        <div className="w-full mx-auto px-4 md:px-8 max-w-[1200px]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-[4rem] lg:space-y-0">
-            <div className="px-5 md:px-0">
-              <h1 className="text-[43px] md:text-[48px] leading-none lg:text-[68px] font-michroma">
+            <motion.div
+              initial={{ n: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="px-5 md:px-0"
+            >
+              <h1 className="text-[46px] md:text-[48px] leading-[3.1rem] md:leading-none lg:text-[68px] font-michroma">
                 <span className="flex items-center">
                   summer
                   <img src={Polygon} alt="/" />
@@ -38,18 +44,18 @@ const Hero = () => {
                   <img src={Polygon} alt="/" />
                 </span>
               </h1>
-              <p className="text-[#666666] text-[14px] lg:text-[18px] py-5 font-medium max-w-[330px] lg:max-w-[500px]">
+              <p className="text-[#666666] text-[14px] lg:text-[18px] py-7 font-medium max-w-[320px] lg:max-w-[500px]">
                 Find your shoes from our various collections. Here shoes are
                 endless and profit is also endless.
               </p>
               <Link
-              to='/products'
+                to="/products"
                 className="bg-[#FC5545] rounded-md py-2 px-8 text-white hover:bg-[#a82c21] 
                transition-all duration-200 ease-in-out"
               >
                 Shop Now
               </Link>
-            </div>
+            </motion.div>
 
             <div className="relative flex flex-col lg:flex-row items-center">
               <div className="relative">
@@ -89,9 +95,13 @@ const Hero = () => {
                   <p className="text-[#FC5545] pr-6 text-[20px] md:text-2xl text-3xl">
                     $120
                   </p>
-                  <button className="px-2 py-1 text-[#333333] text-[20px] md:text-2xl text-3xl border-[1px] border-[#333333] hover:bg-[#333333] hover:text-white">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="px-2 py-1 text-[#333333] text-[20px] md:text-2xl text-3xl border-[1px] border-[#333333] hover:bg-[#333333] hover:text-white"
+                  >
                     Buy Now
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </div>

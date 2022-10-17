@@ -7,6 +7,7 @@ import img3 from "../../assets/gallery3.webp";
 import img4 from "../../assets/gallery4.webp";
 import img5 from "../../assets/gallery5.webp";
 import img6 from "../../assets/gallery6.webp";
+import img7 from "../../assets/gallery7.webp";
 import "../Layout/Gallery.css";
 
 const SelectedGallery = () => {
@@ -35,6 +36,10 @@ const SelectedGallery = () => {
       id: 6,
       imgSrc: img6,
     },
+    {
+      id: 7,
+      imgSrc: img7,
+    },
   ];
 
   const [model, setModel] = useState(false);
@@ -57,7 +62,9 @@ const SelectedGallery = () => {
           <h1 className="font-bold text-xl md:text-3xl tracking-widest">
             SELECTED IMAGES
           </h1>
-          <p className="text-[#ececece7] px-10 md:px-7 text-[7px] md:text-[12px] tracking-widest mt-[2px]">[Click image to view full size.]</p>
+          <p className="text-[#ececece7] px-10 md:px-7 text-[7px] md:text-[12px] tracking-widest mt-[2px]">
+            [Click image to view full size.]
+          </p>
         </div>
 
         <div>
@@ -75,6 +82,7 @@ const SelectedGallery = () => {
                   onClick={() => getImg(item.imgSrc)}
                 >
                   <img
+                    loading="lazy"
                     src={item.imgSrc}
                     alt="Gallery Pictures"
                     className="w-full h-full"
@@ -86,8 +94,9 @@ const SelectedGallery = () => {
 
           <div className="text-center w-full mt-6 md:mt-14">
             <Link
-             to='/gallery'
-             className="text-[#cecacaf3] hover:text-white font-semibold text-[12px] tracking-wide p-2 md:text-[15px] mt-2 md:mt-3 border-2 border-[#cecacae7] hover:border-[#fff] transition-all duration-300 ease-in-out ">
+              to="/gallery"
+              className="text-[#cecacaf3] hover:text-white font-semibold text-[12px] tracking-wide p-2 md:text-[15px] mt-2 md:mt-3 border-2 border-[#cecacae7] hover:border-[#fff] transition-all duration-300 ease-in-out "
+            >
               View All Images
             </Link>
           </div>

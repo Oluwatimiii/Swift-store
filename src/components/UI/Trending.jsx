@@ -4,6 +4,7 @@ import { IoChevronBack } from "react-icons/io5";
 import { IoChevronForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import ShoesData from "../Shoes/ShoesData";
+import { motion } from "framer-motion";
 import { Puff } from "react-loader-spinner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -105,9 +106,9 @@ const Trending = () => {
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
-    speed: 300,
+    speed: 1000,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -116,10 +117,10 @@ const Trending = () => {
         breakpoint: 1224,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           autoplay: true,
-          autoplaySpeed: 2000,
+          autoplaySpeed: 4000,
           pauseOnHover: true,
           dots: true,
         },
@@ -128,8 +129,8 @@ const Trending = () => {
         breakpoint: 1050,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -149,26 +150,41 @@ const Trending = () => {
           <div className="flex justify-between">
             <div className="flex items-center space-x-2">
               <button onClick={() => slider?.current?.slickPrev()}>
-                <IoChevronBack size={20} className="p-1 border-[1px] border-[#FC5545] rounded-full" color="#FC5545" />
+                <IoChevronBack
+                  size={20}
+                  className="p-1 border-[1px] border-[#FC5545] rounded-full"
+                  color="#FC5545"
+                />
               </button>
               <button onClick={() => slider?.current?.slickNext()}>
-                <IoChevronForward size={20} className="p-1 border-[1px] border-[#1E1E1E] rounded-full" color="#1E1E1E" />
+                <IoChevronForward
+                  size={20}
+                  className="p-1 border-[1px] border-[#1E1E1E] rounded-full"
+                  color="#1E1E1E"
+                />
               </button>
             </div>
 
             <div className="flex items-center space-x-2 md:space-x-5 justify-between">
               <div className="h-[1px] w-[30px] md:w-[75px] bg-[#FC554575] "></div>
               <h1 className="text-[#1E1E1E] text-[14px] md:text-3xl">
-                Trending  <span className="text-[#FC5545] pl-1">Collections</span>
+                Trending{" "}
+                <span className="text-[#FC5545] pl-1">Collections</span>
               </h1>
             </div>
           </div>
 
           {/* CAROUSEL */}
-          <div className="w-full relative">
+          <div className="w-full">
             <Slider ref={slider} {...settings}>
               {shoes.slice(0, 7).map((shoe) => (
-                <div className="font-poppins max-w-full overflow-hidden" key={shoe.id}> 
+                <motion.div
+                  initial={{ y: -250 }}
+                  animate={{ y: 0 }}
+                  transition={{ type: 'spring', stifffness: 200 }}
+                  className="font-poppins max-w-full overflow-hidden"
+                  key={shoe.id}
+                >
                   <ShoesData
                     id={shoe.id}
                     key={shoe.id}
@@ -177,7 +193,7 @@ const Trending = () => {
                     description={shoe.description}
                     price={shoe.price}
                   />
-                </div>
+                </motion.div>
               ))}
             </Slider>
           </div>
@@ -186,7 +202,7 @@ const Trending = () => {
           <div className="flex items-center justify-center mx-auto">
             <Link
               to="/products"
-              className="rounded bg-[#d14343] hover:bg-[#94261c] transition-all duration-200 ease-in-out text-white px-3 py-1"
+              className="rounded bg-[#d14343] hover:bg-[#94261c] transition-all duration-200 ease-in-out text-white px-4 py-2"
             >
               View All
             </Link>

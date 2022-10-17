@@ -13,7 +13,7 @@ const ShoesData = (props) => {
       url: props.url,
       name: props.name,
       quantity: quantity,
-      price: props.price
+      price: props.price,
     });
   };
 
@@ -21,6 +21,7 @@ const ShoesData = (props) => {
     <div className="rounded-lg p-2 border-[1px] border-[#ac2b2b46] bg-slate-50">
       <div className="w-full h-[180px] rounded-md border-[1px] overflow-hidden border-[#ac2b2b46]">
         <img
+          loading="lazy"
           src={props.url}
           alt={props.name}
           className="w-full h-full object-cover"
@@ -34,9 +35,7 @@ const ShoesData = (props) => {
           </span>
         </div>
         <div className="flex items-end justify-between">
-          <p className="font-semibold text-xl text-[#df4b3e]">
-            &#8358;{price}
-          </p>
+          <p className="font-semibold text-xl text-[#df4b3e]">&#8358;{price}</p>
           <ShoeForm id={props.id} onAddToCart={addToCartHandler} />
         </div>
       </div>

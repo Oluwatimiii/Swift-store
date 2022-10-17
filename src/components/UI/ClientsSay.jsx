@@ -103,13 +103,14 @@ const ClientsSay = () => {
             <div className="flex flex-col md:flex-row items-center justify-between font-lora w-full px-3">
               {CLIENT_DATA.slice(index, index + testLength).map((data) => (
                 <div
-                  className="bg-white rounded-md overflow-hidden shadow-lg border-[1px] border-[#e0b3b37e] w-[280px] md:w-[320px] lg:w-[440px]"
+                  className="bg-white rounded-md transition-all duration-500 ease-in-out overflow-hidden shadow-lg border-[1px] border-[#e0b3b37e] w-[280px] md:w-[320px] lg:w-[440px]"
                   key={data.id}
                 >
                   <div className="flex justify-between space-x-3">
                     {/* IMAGE */}
                     <div className="w-[40%] h-[130px]">
                       <img
+                        loading="lazy"
                         src={data.img_url}
                         alt={data.name}
                         className="w-full h-full object-cover"
@@ -122,8 +123,12 @@ const ClientsSay = () => {
                       </div>
                       {/* TITLE */}
                       <div className="pt-7 lg:pt-3 text-center">
-                        <h3 className="text-[9px] lg:text-sm font-semibold">-{data.name}</h3>
-                        <p className="text-[9px] lg:text-[12px] text-[#FC5545]">{data.job}</p>
+                        <h3 className="text-[9px] lg:text-sm font-semibold">
+                          -{data.name}
+                        </h3>
+                        <p className="text-[9px] lg:text-[12px] text-[#FC5545]">
+                          {data.job}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -133,17 +138,17 @@ const ClientsSay = () => {
 
             {/* BUTTONS */}
             <div className="pt-6 flex items-center space-x-2">
-              <button onClick={prevTestBtn}>
+              <button onClick={prevTestBtn} className="p-1 border-[1px] border-[#FC5545] rounded-full">
                 <IoChevronBack
                   size={20}
-                  className="p-1 border-[1px] border-[#FC5545] rounded-full"
+                  
                   color="#FC5545"
                 />
               </button>
-              <button onClick={nextTestBtn}>
+              <button onClick={nextTestBtn} className="p-1 border-[1px] border-[#1E1E1E] rounded-full">
                 <IoChevronForward
                   size={20}
-                  className="p-1 border-[1px] border-[#1E1E1E] rounded-full"
+                  
                   color="#1E1E1E"
                 />
               </button>

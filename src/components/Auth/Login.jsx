@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { ColorRing } from "react-loader-spinner";
 import AuthContext from "../../store/auth-context";
@@ -28,7 +29,9 @@ const Login = (props) => {
     e.preventDefault();
     setIsLoading(true);
     fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_SWIFT_KEY}`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${
+        import.meta.env.VITE_SWIFT_KEY
+      }`,
       {
         method: "POST",
         body: JSON.stringify({
@@ -61,7 +64,7 @@ const Login = (props) => {
         const expirationTime = new Date(
           new Date().getTime() + +data.expiresIn * 1000
         );
-        props.setUserName(data.email)
+        props.setUserName(data.email);
         authCtx.login(data.idToken, expirationTime.toISOString());
         navigate("/");
       })
@@ -79,17 +82,14 @@ const Login = (props) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
 
-        const expirationTime = new Date(
-          new Date().getTime() + +3600 * 1000
-        );
+        const expirationTime = new Date(new Date().getTime() + +3600 * 1000);
 
-        authCtx.goggle(token, expirationTime.toISOString())
+        authCtx.goggle(token, expirationTime.toISOString());
         console.log(token);
-        navigate('/');
-
+        navigate("/");
 
         const user = result.user;
-        props.setUserName(user.displayName)
+        props.setUserName(user.displayName);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -101,7 +101,13 @@ const Login = (props) => {
   };
 
   return (
-    <div className="bg-[#700a31]  flex flex-col items-center justify-center font-poppins pb-[3rem]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, type: "tween" }}
+      className="bg-[#700a31]  flex flex-col items-center justify-center font-poppins pb-[3rem]"
+    >
       <div className="pt-[7.6rem] mx-auto px-7 md:px-10 flex items-center justify-center">
         <div className="rounded bg-white max-w-[330px] md:max-w-full md:w-[450px] px-8 py-11">
           <h1 className="font-bold text-3xl">Sign In</h1>
@@ -141,10 +147,10 @@ const Login = (props) => {
               </div>
               {!isLoading && (
                 <div
-                  className="mt-5 flex items-center justify-center py-2 bg-[#770f38] w-full rounded-md
-                 hover:bg-[#580a29] transition-all duration-300 ease-in-out"
+                  className="mt-5 flex items-center justify-center"
                 >
-                  <button className="text-white">Login</button>
+                  <button className="text-white py-2 bg-[#770f38] w-full rounded-md
+                 hover:bg-[#580a29] transition-all duration-300 ease-in-out">Login</button>
                 </div>
               )}
               {isLoading && (
@@ -189,7 +195,7 @@ const Login = (props) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
