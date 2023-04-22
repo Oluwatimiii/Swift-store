@@ -109,7 +109,7 @@ const Checkout = () => {
               }`}
             />
             {!formValidity.firstName && (
-              <p className="text-red-900 font-semibold font-lora text-[12px]">
+              <p className="text-red-900 font-semibold text-[12px]">
                 Please enter a valid first name.
               </p>
             )}
@@ -127,7 +127,7 @@ const Checkout = () => {
               }`}
             />
             {!formValidity.lastName && (
-              <p className="text-red-900 font-semibold font-lora text-[12px]">
+              <p className="text-red-900 font-semibold text-[12px]">
                 Please enter a valid last name.
               </p>
             )}
@@ -144,7 +144,7 @@ const Checkout = () => {
             className={`input-btn ${!formValidity.email ? "bg-red-100" : ""}`}
           />
           {!formValidity.email && (
-            <p className="text-red-900 font-semibold font-lora text-[12px]">
+            <p className="text-red-900 font-semibold text-[12px]">
               Please enter a valid email.
             </p>
           )}
@@ -160,7 +160,7 @@ const Checkout = () => {
             className={`input-btn ${!formValidity.address ? "bg-red-100" : ""}`}
           />
           {!formValidity.address && (
-            <p className="text-red-900 font-semibold font-lora text-[12px]">
+            <p className="text-red-900 font-semibold text-[12px]">
               Please enter a address.
             </p>
           )}

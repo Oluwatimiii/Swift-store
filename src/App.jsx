@@ -14,49 +14,68 @@ import AuthContext from "./store/auth-context";
 import { ToastContainer } from "react-toastify";
 import Gallery from "./components/Layout/Gallery";
 import ScrollToTop from "../src/components/UI/ScrollToTop";
+import Loading from "./components/Layout/Loading";
 
 function App() {
   const authCtx = useContext(AuthContext);
 
   const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3500);
+  }
 
   return (
     <CartProvider>
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route
-          path="cart/checkout"
-          element={
-            !authCtx.isLoggedIn ? <Navigate to="/login" /> : <Checkout />
-          }
-        />
-        <Route path="/gallery" element={<Gallery />} />
-        {!authCtx.isLoggedIn && (
-          <Route path="login" element={<Login setUserName={setUserName} />} />
-        )}
-        {!authCtx.isLoggedIn && <Route path="signup" element={<SignUp />} />}
-        {authCtx.isLoggedIn && (
-          <Route path="profile" element={<Profile userName={userName} />} />
-        )}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-      <Footer />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <ScrollToTop />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route
+              path="cart/checkout"
+              element={
+                !authCtx.isLoggedIn ? <Navigate to="/login" /> : <Checkout />
+              }
+            />
+            <Route path="/gallery" element={<Gallery />} />
+            {!authCtx.isLoggedIn && (
+              <Route
+                path="login"
+                element={<Login setUserName={setUserName} />}
+              />
+            )}
+            {!authCtx.isLoggedIn && (
+              <Route path="signup" element={<SignUp />} />
+            )}
+            {authCtx.isLoggedIn && (
+              <Route path="profile" element={<Profile userName={userName} />} />
+            )}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          <ToastContainer
+            position="top-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+          <Footer />
+        </>
+      )}
     </CartProvider>
   );
 }

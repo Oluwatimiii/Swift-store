@@ -96,7 +96,7 @@ const Navbar = () => {
             <HeaderCartBtn />
           </Link>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };

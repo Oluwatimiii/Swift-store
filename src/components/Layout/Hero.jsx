@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Polygon from "../../assets/Polygon.png";
 import Shoe1 from "../../assets/Shoe1.png";
 import Ratings from "../../assets/Ratings.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { gsap } from 'gsap'
 
 const Hero = () => {
   const [color, setColor] = useState("#FC5545");
   const [hueColor, setHueColor] = useState("orange");
+
+
+  useEffect(() => {
+      gsap.to(".words", { 
+      duration: 0.3,
+      opacity: 1,  
+      ease: "bounce.in"   
+    });
+  }, [])
 
   const orangeColor = () => {
     setColor("#FC5545");
@@ -31,7 +41,7 @@ const Hero = () => {
               initial={{ n: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="px-5 md:px-0"
+              className="px-5 md:px-0 words opacity-40"
             >
               <h1 className="text-[46px] md:text-[48px] leading-[3.1rem] md:leading-none lg:text-[68px] font-michroma">
                 <span className="flex items-center">
@@ -66,7 +76,7 @@ const Hero = () => {
                   <img
                     src={Shoe1}
                     alt="air-jordan"
-                    className={`w-full h-full object-cover ${hueColor}`}
+                    className={`w-full shoe h-full object-cover ${hueColor}`}
                   />
                 </div>
               </div>
